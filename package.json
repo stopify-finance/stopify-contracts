@@ -1,0 +1,45 @@
+{
+  "name": "stopify-contracts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test",
+    "build": "truffle build",
+    "lint:sol": "solhint --max-warnings 0 \"contracts/**/*.sol\"",
+    "lint:js": "eslint test/**/*.js migrations/**/*.js",
+    "fix:js": "eslint test/**/*.js migrations/**/*.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stopify-finance/stopify-contracts.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": " npm run lint:sol && npm run lint:js && lint-staged",
+      "pre-push": "npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "author": "Konstantin Lysenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stopify-finance/stopify-contracts/issues"
+  },
+  "homepage": "https://github.com/stopify-finance/stopify-contracts#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "3.3.0",
+    "eslint": "7.16.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-plugin-import": "2.22.0",
+    "husky": "4.3.6",
+    "solhint": "^3.3.1",
+    "truffle": "^5.1.61",
+    "truffle-flattener": "1.5.0",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "web3": "^1.3.1"
+  }
+}
